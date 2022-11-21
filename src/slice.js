@@ -7,7 +7,7 @@ const change = createSlice({
         input1:"Allow Edit",
         input2:"black",
         input3: 16,
-        input4:"monospace"
+        input4:""
     },
     reducers:{
         setValue1:(initialState,action) =>{
