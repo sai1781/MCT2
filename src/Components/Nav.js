@@ -59,11 +59,9 @@ const Nav = _ => {
                     dispatch(setValue4(e.target.value))
                 }
             }}>
-                <option value="center" >monospace</option>
-                <option >left</option>
-                <option >right</option>
-
-                
+                <option value="'Yanone Kaffeesatz', sans-serif" >monospace</option>
+                <option value="'BhuTuka Expanded One', cursive">BhuTuka </option>
+                <option value="'Roboto Mono', monospace">Roboto Mono</option>
             </select>
         </div>
     )
