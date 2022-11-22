@@ -36,6 +36,7 @@ const Nav = _ => {
     return (
         <div className='nav' >
             <select className='button' onClick={(e) => {
+                        hide()
                 dispatch(setValue1(e.target.value))
             }}>
                 <option >Allow Edit</option>
@@ -43,7 +44,6 @@ const Nav = _ => {
 
             </select>
             <select className='button' ref={ref} onChange={(e) => {
-                hide()
 //                 if (value1 === "Allow Edit") {
                     dispatch(setValue2(e.target.value))
 //                 }
