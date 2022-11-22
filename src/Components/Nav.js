@@ -5,8 +5,14 @@ import { setValue2 } from "../slice"
 import { setValue3 } from "../slice"
 import { setValue4 } from "../slice"
 import { useSelector } from 'react-redux'
+import { useRef } from 'react'
+
 
 const Nav = _ => {
+    const ref = useRef();
+    const ref1 = useRef();
+    const ref2 = useRef();
+    
     const dispatch = useDispatch();
     const value1 = useSelector(state => state.input1)
     console.log(value1)
@@ -14,6 +20,18 @@ const Nav = _ => {
     // const [fontSize, setFontSize] = useState(12)
     // const [fontColor, setFontColor] = useState("black")
     // const [monospace, setMonoSpace] = useState("monospace")
+    
+    const hide = _ => {
+        if (value1 !== "Not Allowing Edit") {
+            ref.current.disabled = true;
+            ref1.current.disabled = true;
+            ref2.current.disabled = true;
+        } else {
+            ref.current.disabled = false;
+            ref1.current.disabled = false;
+            ref2.current.disabled = false;
+        }
+    }
 
     return (
         <div className='nav' >
@@ -24,10 +42,11 @@ const Nav = _ => {
                 <option >Not Allowing Edit</option>
 
             </select>
-            <select className='button' onChange={(e) => {
-                if (value1 === "Allow Edit") {
+            <select className='button' ref={ref} onChange={(e) => {
+                hide()
+//                 if (value1 === "Allow Edit") {
                     dispatch(setValue2(e.target.value))
-                }
+//                 }
             }}>
                 <option>Black</option>
                 <option>Blue</option>
@@ -35,10 +54,10 @@ const Nav = _ => {
                 <option>Yellow</option>
                 <option>Red</option>
             </select>
-            <select className='button' onChange={(e) => {
-                if (value1 === "Allow Edit") {
+            <select className='button' ref={ref1} onChange={(e) => {
+//                 if (value1 === "Allow Edit") {
                     dispatch(setValue3(e.target.value)); console.log(e.target.value)
-                }
+//                 }
             }}>
                 <option>16</option>
                 <option>2</option>
@@ -54,10 +73,10 @@ const Nav = _ => {
                 <option>26</option>
                 <option>28</option>
             </select>
-            <select className='button' onChange={(e) => {
-                if (value1 === "Allow Edit") {
+            <select className='button' ref={ref2}  onChange={(e) => {
+//                 if (value1 === "Allow Edit") {
                     dispatch(setValue4(e.target.value))
-                }
+//                 }
             }}>
                 <option value="'Yanone Kaffeesatz', sans-serif" >monospace</option>
                 <option value="'BhuTuka Expanded One', cursive">BhuTuka </option>
