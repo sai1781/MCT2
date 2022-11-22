@@ -24,7 +24,15 @@ const Nav = _ => {
             ref.current.disabled = true;
             ref1.current.disabled = true;
             ref2.current.disabled = true;
+            ref.current.className = "button disabled";
+            ref1.current.className ="button disabled";
+            ref2.current.className = "button disabled";
+            
+            
         } else {
+            ref.current.className = "button";
+            ref1.current.className ="button";
+            ref2.current.className = "button";
             ref.current.disabled = false;
             ref1.current.disabled = false;
             ref2.current.disabled = false;
@@ -46,7 +54,6 @@ const Nav = _ => {
                 dispatch(setValue2(e.target.value))
 
             }}>
-                disabled
                 <option >Black</option>
                 <option>Blue</option>
                 <option>Green</option>
@@ -86,3 +93,4 @@ const Nav = _ => {
 }
 
 export default Nav;
+
